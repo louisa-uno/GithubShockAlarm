@@ -22,6 +22,9 @@ logger = logging.getLogger(__name__)
 CONFIG_FILE = os.path.join(os.path.dirname(__file__), 'alarms.txt')
 ENV_FILE = os.path.join(os.path.dirname(__file__), '.env')
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+icon_path = os.path.join(base_dir, "icons", "waves.svg")
+
 def load_env():
     logger.debug("Loading environment variables")
     load_dotenv(ENV_FILE)
@@ -323,7 +326,7 @@ class OpenShockClock(Adw.Application):
             row.add_suffix(duration_label)
 
             if vibrate_before:
-                vibrate_icon = Gtk.Image.new_from_file("/home/arx/Playspace/Code/Python/openshock-gtk/icons/waves.svg")
+                vibrate_icon = Gtk.Image.new_from_file(waves)
                 row.add_suffix(vibrate_icon)
 
             delete_button = Gtk.Button()
