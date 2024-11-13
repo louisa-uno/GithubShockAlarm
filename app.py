@@ -326,7 +326,7 @@ class OpenShockClock(Adw.Application):
             row.add_suffix(duration_label)
 
             if vibrate_before:
-                vibrate_icon = Gtk.Image.new_from_file(waves)
+                vibrate_icon = Gtk.Image.new_from_file(icon_path)
                 row.add_suffix(vibrate_icon)
 
             delete_button = Gtk.Button()
