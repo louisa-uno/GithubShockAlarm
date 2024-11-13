@@ -7,4 +7,4 @@
 
 
 
-[![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app)
+[![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app) [![This app is distributed as free software and only uses free software](https://no-bullshit-software.github.io/TheBadgeOfFreedom/ShieldOfFreedom.svg)](https://no-bullshit-software.github.io/TheBadgeOfFreedom)
