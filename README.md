@@ -2,7 +2,7 @@
 
 ### Installation
 ##### Windows - coming soon
-<a href='https://flathub.org/apps/com.orgname.openshockclock'><img width='240' alt='Download for Windows' src='[https://flathub.org/assets/badges/flathub-badge-en.png](https://github.com/user-attachments/assets/f050b0df-36f9-43ee-b214-f714b679cd48)'/></a>
+<a href='https://flathub.org/apps/com.orgname.openshockclock'><img width='240' alt='Download for Windows' src='https://github.com/user-attachments/assets/f050b0df-36f9-43ee-b214-f714b679cd48'/></a>
 
 ##### Flathub - coming soon
 <a href='https://flathub.org/apps/com.orgname.openshockclock'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
