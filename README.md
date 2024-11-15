@@ -14,4 +14,4 @@ yay -S openshockclock-git
 ```
 ###### Or replace `yay` with your AUR helper of choice
 
-[![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app) [![This app is distributed as free software and only uses free software](https://no-bullshit-software.github.io/TheBadgeOfFreedom/ShieldOfFreedom.png)](https://no-bullshit-software.github.io/TheBadgeOfFreedom)
+[![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app) [![This app is distributed as free software and only uses free software](https://no-bullshit-software.github.io/TheBadgeOfFreedom/ShieldOfFreedom.svg)](https://no-bullshit-software.github.io/TheBadgeOfFreedom)
