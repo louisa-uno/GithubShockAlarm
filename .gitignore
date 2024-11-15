@@ -1,2 +1,8 @@
 /.env
 /alarms.txt
+
+# built stuff
+/dist
+/build
+/dist.zip
+openshockclock-gtk.spec
