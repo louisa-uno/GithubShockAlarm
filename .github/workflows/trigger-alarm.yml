@@ -1,0 +1,40 @@
+name: Trigger Alarm
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "0 5 * * *" # At german time 6:00/7:00 every Day
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up Python 3.13
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.13"
+
+            - name: Cache pip dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.cache/pip
+                  key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pip-
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
+
+            - name: Run openshockclock-gtk.py with secrets to trigger alarm
+              env:
+                  SHOCK_API_KEY: ${{ secrets.SHOCK_API_KEY }}
+                  SHOCK_ID: ${{ secrets.SHOCK_ID }}
+                  INTENSITY: ${{ secrets.INTENSITY }}
+                  DURATION: ${{ secrets.DURATION }}
+                  VIBRATE_BEFORE: ${{ secrets.VIBRATE_BEFORE }}
+              run: python openshockclock-gtk.py

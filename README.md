@@ -1,17 +1,19 @@
-### GTK Interface for [OpenShockClock](https://github.com/Arxari/OpenShockClock)
+### GithubShockAlarm
 
-### Installation
-##### Windows - coming soon
-<a href='https://flathub.org/apps/com.orgname.openshockclock'><img width='240' alt='Download for Windows' src='https://github.com/user-attachments/assets/f050b0df-36f9-43ee-b214-f714b679cd48'/></a>
+A shock alarm clock using OpenShock and GitHub Actions.
 
-##### Flathub - coming soon
-<a href='https://flathub.org/apps/com.orgname.openshockclock'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+### Usage
 
-##### Distro specific installs
-Arch, Endeavour OS and other Arch-based distros
-```bash
-yay -S openshockclock-git
-```
-###### Or replace `yay` with your AUR helper of choice
+Set the following GitHub Actions secrets:
 
-[![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app) [![This app is distributed as free software and only uses free software](https://no-bullshit-software.github.io/TheBadgeOfFreedom/ShieldOfFreedom.svg)](https://no-bullshit-software.github.io/TheBadgeOfFreedom)
+-   SHOCK_API_KEY # Get it from https://openshock.app/#/dashboard/tokens
+-   SHOCK_ID # Get it from https://openshock.app/#/dashboard/shockers/own
+-   INTENSITY # Integer between 1 and 100
+-   DURATION # Integer Integer between 1 and 30 (seconds)
+-   VIBRATE_BEFORE # Boolean (true/false) whether to vibrate before the shock
+
+Then edit the cron schedule in `.github/workflows/trigger-alarm.yml` to have the alarm triggered at your desired time.
+
+You can also trigger the alarm manually via the "Run workflow" button in the "Actions" tab.
+
+It should trigger automatically to your liking without any further interaction. Be aware that the GitHub Actions runner is in the US, so the time zone difference might affect the timing of the alarm.
