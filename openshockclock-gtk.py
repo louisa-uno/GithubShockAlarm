@@ -1,7 +1,7 @@
 import os
 import logging
 import requests
-
+import time
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -85,7 +85,7 @@ def trigger_shock(api_key, shock_id, intensity, duration, vibrate=False):
             "id": shock_id,
             "type": "Vibrate" if vibrate else "Shock",
             "intensity": intensity,
-            "duration": duration,
+            "duration": duration * 1000,  # Convert seconds to milliseconds
             "exclusive": True
         }],
         "customName": "OpenShockClock"
@@ -109,31 +109,8 @@ class OpenShockClock():
     def trigger_alarm(self):
         if self.vibrate_before:
             logger.debug(f"Triggering vibration warning for alarm at intensity 100 for 10 seconds")
-            vibration_data = {
-                "shocks": [{
-                    "id": self.shock_id,
-                    "type": "Vibrate",
-                    "intensity": 100,
-                    "duration": 10000,
-                    "exclusive": True
-                }],
-                "customName": "OpenShockClock - Vibration Warning"
-            }
-
-            try:
-                response = requests.post(
-                    "https://api.shocklink.net/2/shockers/control",
-                    headers={
-                        "accept": "application/json",
-                        "OpenShockToken": self.api_key,
-                        "Content-Type": "application/json"
-                    },
-                    json=vibration_data
-                )
-                response.raise_for_status()
-                logger.debug(f"Vibration warning API response: {response.status_code}")
-            except requests.exceptions.RequestException as e:
-                logger.error(f"Failed to trigger vibration warning: {str(e)}")
+            trigger_shock(self.api_key, self.shock_id, 100, 10, vibrate=True)
+            time.sleep(10)
 
         logger.debug(f"Triggering alarm")
         trigger_shock(self.api_key, self.shock_id, self.intensity, self.duration)
