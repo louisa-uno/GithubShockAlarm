@@ -2,7 +2,7 @@ name: Trigger Alarm
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 5 * * *" # At german time 6:00/7:00 every Day
+        - cron: "*/15 5-7 * * *" # At german time every 15 minutes between 6:00-8:45/7:00-9:45 (depending on summer/winter time) every Day
 
 jobs:
     build:
